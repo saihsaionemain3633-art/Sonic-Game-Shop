@@ -11,7 +11,7 @@ logging.basicConfig(
 # ထည့်သွင်းပေးလိုက်သော ဆိုင်ရှင် (Admin) ၏ Chat ID
 ADMIN_CHAT_ID = 7658208028
 # Reseller Group ID
-RESELLER_GROUP_ID = -1004418195761 
+RESELLER_GROUP_ID = -1004382542271
 
 # ဆိုင်ဖွင့်/ပိတ် အခြေအနေကို မှတ်သားရန် Global Variable (Default အနေဖြင့် ဆိုင်ဖွင့်ထားသည် - True)
 SHOP_IS_OPEN = True
