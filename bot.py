@@ -23,7 +23,6 @@ USED_TRANSACTIONS = set()
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = [
         ["🫘 Mochi Chat Beans"],
-        ["🎮 Mobile Legends Diamonds"],
         ["📞 ဆိုင်ရှင်ကို ဆက်သွယ်ရန်", "📌 မှာယူနည်း"]
     ]
     reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
@@ -70,24 +69,6 @@ def get_bean_menu():
     ]
     return InlineKeyboardMarkup(keyboard)
 
-# Mobile Legends Diamonds ဈေးနှုန်းခလုတ်များ
-def get_ml_menu():
-    keyboard = [
-        [InlineKeyboardButton("Weekly Pass = 6,500 ks", callback_data="ml_weekly")],
-        [InlineKeyboardButton("Weekly Elite package = 3,500 ks", callback_data="ml_weekly_elite")],
-        [InlineKeyboardButton("Epic Monthly Package = 16,900 ks", callback_data="ml_epic_monthly")],
-        [InlineKeyboardButton("86 💎 = 5,400 ks", callback_data="ml_86"), InlineKeyboardButton("172 💎 = 10,500 ks", callback_data="ml_172")],
-        [InlineKeyboardButton("257 💎 = 15,300 ks", callback_data="ml_257"), InlineKeyboardButton("706 💎 = 40,600 ks", callback_data="ml_706")],
-        [InlineKeyboardButton("2195 💎 = 123,000 ks", callback_data="ml_2195"), InlineKeyboardButton("3688 💎 = 210,000 ks", callback_data="ml_3688")],
-        [InlineKeyboardButton("5532 💎 = 311,000 ks", callback_data="ml_5532"), InlineKeyboardButton("9288 💎 = 516,000 ks", callback_data="ml_9288")],
-        [InlineKeyboardButton("--- Diamond 2ဆ တစ်ကြိမ်သာ ---", callback_data="dummy")],
-        [InlineKeyboardButton("50 + 50 💎 = 3,500 ks", callback_data="ml_50_50")],
-        [InlineKeyboardButton("150 + 150 💎 = 11,000 ks", callback_data="ml_150_150")],
-        [InlineKeyboardButton("250 + 250 💎 = 17,500 ks", callback_data="ml_250_250")],
-        [InlineKeyboardButton("500 + 500 💎 = 33,500 ks", callback_data="ml_500_500")]
-    ]
-    return InlineKeyboardMarkup(keyboard)
-
 # စာသားများကို ကိုင်တွယ်မည့် အပိုင်း
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     global SHOP_IS_OPEN
@@ -110,13 +91,6 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "🫘 **Mochi Chat Bean ဈေးနှုန်းများ:**\n\n"
             "အောက်ပါ Package များမှ လိုချင်သည်ကို နှိပ်၍ ဝယ်ယူနိုင်ပါပြီရှင်။ 👇",
             reply_markup=get_bean_menu(),
-            parse_mode="Markdown"
-        )
-    elif "Mobile Legends Diamonds" in text:
-        await update.message.reply_text(
-            "🎮 **Mobile Legends Diamond ဈေးနှုန်းများ:**\n\n"
-            "အောက်ပါ Package များမှ လိုချင်သည်ကို နှိပ်၍ ဝယ်ယူနိုင်ပါပြီရှင်။ 👇",
-            reply_markup=get_ml_menu(),
             parse_mode="Markdown"
         )
     elif "ဆက်သွယ်ရန်" in text:
